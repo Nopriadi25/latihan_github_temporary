@@ -17,25 +17,26 @@ if (isset($_POST['hitung'])){
     <title></title>
   </head>
   <body>
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="r">Form Luas dan Keliling Lingkaran</label>
-            <input type="number" name="r" class="form-control" required placeholder="masukkan nilai r (jari-jari)">
+    <div class="container p-5">
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="r">Form Luas dan Keliling Lingkaran</label>
+                <input type="number" name="r" class="form-control" required placeholder="masukkan nilai r (jari-jari)">
+            </div>
+
+            <button type="submit" name="hitung" value="Hitung" class="btn btn-primary btn-block">submit</button>
+        </form>
+
+        <?php if (isset($_POST['hitung'])) { ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div>Nilai r lingkaran adalah : <?=$_POST['r']?></div>
+            <div>Luas lingkaran adalah : <?= $myLingkaran->getLuas()?></div>
+            <div>Keliling lingkaran adalah : <?= $myLingkaran->getKeliling()?></div>
+
+            <button type="button" close="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-
-        <button type="submit" name="hitung" value="Hitung" class="btn btn-primary btn-block">submit</button>
-    </form>
-
-    <?php if (isset($_POST['hitung'])) { ?>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <div>Nilai r lingkaran adalah : <?=$_POST['r']?></div>
-        <div>Luas lingkaran adalah : <?= $myLingkaran->getLuas()?></div>
-        <div>Keliling lingkaran adalah : <?= $myLingkaran->getKeliling()?></div>
-
-        <button type="button" close="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php } ?>
     </div>
-    <?php } ?>
-    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
